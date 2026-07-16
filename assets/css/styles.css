@@ -1,0 +1,346 @@
+body {
+    background: #fb922b;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    font-size: 30px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(91, 19, 37, 0.85),
+            rgba(251, 146, 43, 0.35)
+        );
+}
+
+.title {
+    width: 50%;
+    height: auto;
+    background:
+        linear-gradient(
+            90deg,
+            #ff0000,
+            #ff7f00,
+            #ffff00,
+            #00ff00,
+            #0000ff,
+            #4b0082,
+            #8f00ff
+        );
+    padding: 5px;
+    border-radius: 30px;
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+.section h1 {
+    position: relative;
+    display: inline-block;
+}
+
+.section h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    background:
+        linear-gradient(
+            to right,
+            #ff0000,
+            #ff7f00,
+            #ffff00,
+            #00ff00,
+            #0000ff,
+            #4b0082,
+            #8f00ff
+        );
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+hr {
+    border: 0;
+    height: 10px;
+    background:
+        linear-gradient(
+            to right,
+            #ff0000,
+            #ff7f00,
+            #ffff00,
+            #00ff00,
+            #0000ff,
+            #4b0082,
+            #8f00ff
+        );
+    margin: 20px 0;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
+}
+
+.moving-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.row {
+    position: absolute;
+    left: 0;
+    display: flex;
+    gap: 10px;
+    will-change: transform;
+    opacity: 0.35;
+}
+
+.row img {
+    display: block;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 10px #5b1325);
+}
+
+/* ================================
+   TOP NAVIGATION BAR
+================================ */
+
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle 140px at var(--x) var(--y),
+            rgba(91, 19, 37, 0.95),
+            transparent 75%
+        ),
+        linear-gradient(135deg, #fb922b, #5b1325);
+    border-bottom: 4px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+}
+
+.topnav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle 90px at var(--x) var(--y),
+            rgba(251, 146, 43, 0.25),
+            transparent 70%
+        ),
+        radial-gradient(
+            circle 80px at var(--x) var(--y),
+            rgba(255, 255, 255, 0.12),
+            transparent 70%
+        );
+    opacity: 0.8;
+}
+
+/* ================================
+   NAV LINKS
+================================ */
+
+.topnav a {
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    padding: 5px 18px;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition:
+        color 0.35s ease,
+        transform 0.35s ease,
+        text-shadow 0.35s ease;
+}
+
+.topnav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    width: 0%;
+    height: 3px;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    background: linear-gradient(
+        to right,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8f00ff
+    );
+    transition: width 0.4s ease;
+}
+
+.topnav a:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    color: white;
+    text-shadow:
+        0 0 8px white,
+        0 0 15px #ff7f00;
+}
+
+.topnav a:hover::after {
+    width: 100%;
+}
+
+/* ================================
+   ACTIVE LINK
+================================ */
+
+.topnav a.active {
+    background: linear-gradient(
+        to right,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8f00ff
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+/* ================================
+   LOGO / IMAGES
+================================ */
+
+.topnav img {
+    height: 60px;
+    padding: 5px 16px;
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.topnav img:hover {
+    cursor: pointer;
+    transform: scale(1.12) rotate(2deg);
+    filter: drop-shadow(0 0 8px white) brightness(1.15);
+}
+
+.topnav img.active {
+    border-radius: 8px;
+}
+
+/* ================================
+   SCROLLBAR
+================================ */
+
+*::-webkit-scrollbar {
+    width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ff9d33;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        to bottom,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8f00ff
+    );
+    border-radius: 20px;
+    border: 3px solid #ff9d33;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        to bottom,
+        #ff5555,
+        #ffaa55,
+        #ffff55,
+        #55ff55,
+        #5555ff,
+        #8b55bb,
+        #aa55ff
+    );
+    box-shadow: 0 0 10px white;
+}
+
+/* ================================
+   SMOOTH PAGE FEEL
+================================ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Youtube Videos */
+.video {
+  position: relative;
+  display: inline-block;
+  padding: 6px;
+  border-radius: 12px;
+  background: conic-gradient(
+    from 0deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #8f00ff,
+    #ff0000
+  );
+  background-size: 200% 200%;
+}
+
+.video:hover {
+  animation: borderMove 2s linear infinite;
+}
+
+.video iframe {
+  display: block;
+  width: 560px;
+  height: 315px;
+  border: 0;
+  border-radius: 8px;
+  background: #000;
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    background-position: 200% 50%;
+    filter: hue-rotate(360deg);
+  }
+}
