@@ -46,7 +46,7 @@ function createChatWarning(){
             <li>You cannot delete your account.</li>
             <li>You cannot delete your messages.</li>
             <li>You are responsible for your password and email security.</li>
-            <li>You must be at least 13.</li>
+            <li>You must be at least 13 years old.</li>
         </ul>
 
         </div>
