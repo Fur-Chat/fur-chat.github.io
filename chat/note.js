@@ -72,6 +72,9 @@ function createChatWarning(){
         <button id="accept-chat-btn" disabled>
             Enter Chat
         </button>
+        <button onclick="window.location.href='/'">
+            Back to Home
+        </button>
 
 
     </div>
