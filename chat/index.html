@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat - FurChat</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+}
+
+.box {
+  border: 5px solid #fb922b;
+  width: 20%;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+input {
+  margin: 5px 0;
+  padding: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#messages {
+  border: 1px solid #ccc;
+  height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.msg {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.msg img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.msg-content {
+  max-width: 80%;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 11px;
+  color: gray;
+}
+
+#message {
+  width: 70%;
+}
+</style>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<link rel="stylesheet" href="note.css">
+</head>
+
+<body>
+
+<a href="/">
+  <img class="logo" src="/FURCHAT_LOGO.png" alt="FurChatLogo">
+</a>
+
+<div class="center"><center>
+<div id="auth-section" class="box">
+<h3>Login / Signup</h3>
+<input type="email" id="email" placeholder="Email"><br>
+<input type="password" id="password" placeholder="Password"><br>
+<input type="text" id="signup-username" placeholder="Username (signup only)"><br>
+<input type="text" id="signup-avatar" placeholder="Avatar URL (signup only)"><br>
+<button id="loginBtn">Login</button>
+<button id="signupBtn">Sign Up</button>
+<p id="auth-msg" style="color:red;"></p>
+</div></center>
+</div>
+
+
+<div id="chat-section" class="hidden">
+<h3>FurChat Beta</h3>
+<a href="#account-update">Edit Your Account</a>
+<p>
+Logged in as:
+<span id="user-email"></span>
+<button id="logoutBtn">Logout</button>
+</p>
+<button id="loadMoreBtn" style="display:none;">
+Load More
+</button>
+<div id="messages"></div>
+<input id="message" placeholder="Type a message">
+<button id="sendBtn">Send</button>
+</div>
+
+
+<center>
+<div id="account-update" class="box hidden">
+<a href="#chat-section">Back to Chat</a>
+<h4>Update Account</h4>
+<input id="update-username" placeholder="New username"><br>
+<input id="update-avatar" placeholder="New avatar URL"><br>
+<button id="updateAccountBtn">
+Update
+</button>
+<p id="update-msg"></p>
+</div>
+</center>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+<script src="note.js"></script>
+</body>
+</html>
